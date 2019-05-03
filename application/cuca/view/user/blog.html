@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Blog</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="/tp5/public/css/default.css">
+	<link rel="stylesheet" href="/tp5/public/css/layout.css">
+   <link rel="stylesheet" href="/tp5/public/css/media-queries.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.ico" >
+
+</head>
+<style>
+   .s{
+      color: red;
+      font-weight: 900;
+   }
+</style>
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <div class="logo">
+               <a href="index.html"><img alt="" src="/tp5/public/images/logo.png"></a>
+            </div>
+
+            <nav id="nav-wrap">
+
+               <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	            <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul id="nav" class="nav">
+                  <li><a href="index">HOME</a></li>
+                  {if condition="$username == null"}
+                  <li><a href="Login.html">LOGIN</a></li>
+                  <li><a href="register">REGISTER</a></li>
+                  {else /}
+                  <li><span><a href="personal">{$username}</a></span>
+                     <ul>
+                        <li><a href="destroy">退出</a></li>
+                     </ul>
+                  </li>
+                  {/if}
+
+               </ul> <!-- end #nav -->
+
+            </nav> <!-- end #nav-wrap -->
+
+         </div>
+
+      </div>
+
+   </header> <!-- Header End -->
+
+   <!-- Page Title
+   ================================================== -->
+   <div id="page-title">
+
+      <div class="row">
+
+         <div class="ten columns centered text-center">
+            <h1>CuCa Blog<span>.</span></h1>
+
+            <p>欢迎来到cuca blog </p>
+         </div>
+
+      </div>
+
+   </div> <!-- Page Title End-->
+
+   <!-- Content
+   ================================================== -->
+   <div class="content-outer">
+
+      <div id="page-content" class="row">
+
+         <div id="primary" class="eight columns">
+            {foreach $essay as $val}
+            <article class="post">
+
+               <div class="entry-header cf">
+
+                  <h1>
+                     {if condition="$username == null"}
+                     <a href="cuca/user/loadsingle?id={$val.id}" title="">{$val.title}</a></h1>
+                     {else /}
+                     <a href="loadsingle?id={$val.id}" title="">{$val.title}</a></h1>
+                     {/if}
+
+                  <p class="post-meta">
+
+                     <time class="date" datetime="2014-01-14T11:24">{$val.date}</time>
+                     /
+                     <span class="categories">
+                     <a href="#">{$val.username}</a>
+                     </span>
+
+                  </p>
+
+               </div>
+
+               <div class="post-thumb">
+                  <a href="" title="">
+                     {if $val.imagepath == ""} </a>
+                     {else /}
+                        {foreach $val.imagepath as $path}
+                           <img src="{$path}" alt="post-image" title="post-image">
+                        {/foreach}
+                     </a>
+                     {/if}
+               </div>
+
+               <div class="post-content">
+
+                  <p>{$val.content}</p>
+
+               </div>
+
+            </article> <!-- post end -->
+            {/foreach}
+
+            <!--<article class="post">-->
+
+               <!--<div class="entry-header cf">-->
+
+                  <!--<h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>-->
+
+                  <!--<p class="post-meta">-->
+
+                     <!--<time class="date" datetime="2014-01-14T11:24">Jan 14, 2013</time>-->
+                     <!--/-->
+                     <!--<span class="categories">-->
+                     <!--<a href="#">Design</a> /-->
+                     <!--<a href="#">User Inferface</a> /-->
+                     <!--<a href="#">Web Design</a>-->
+                     <!--</span>-->
+
+                  <!--</p>-->
+
+               <!--</div>-->
+
+               <!--<div class="post-thumb">-->
+                  <!--<a href="single.html" title=""><img src="/tp5/public/images/post-image/post-image-1300x500-02.jpg" alt="post-image" title="post-image"></a>-->
+               <!--</div>-->
+
+               <!--<div class="post-content">-->
+
+                  <!--<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,-->
+                  <!--nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate-->
+                  <!--cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a-->
+                  <!--ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>-->
+
+               <!--</div>-->
+
+            <!--</article> &lt;!&ndash; post end &ndash;&gt;-->
+
+            <!--<article class="post">-->
+
+               <!--<div class="entry-header cf">-->
+
+                  <!--<h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>-->
+
+                  <!--<p class="post-meta">-->
+
+                     <!--<time class="date" datetime="2014-01-14T11:24">Jan 14, 2014</time>-->
+                     <!--/-->
+                     <!--<span class="categories">-->
+                     <!--<a href="#">Design</a> /-->
+                     <!--<a href="#">User Inferface</a> /-->
+                     <!--<a href="#">Web Design</a>-->
+                     <!--</span>-->
+
+                  <!--</p>-->
+
+               <!--</div>-->
+
+               <!--<div class="post-thumb">-->
+                  <!--<a href="single.html" title=""><img src="/tp5/public/images/post-image/post-image-1300x500-03.jpg" alt="post-image" title="post-image"></a>-->
+               <!--</div>-->
+
+               <!--<div class="post-content">-->
+
+                  <!--<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,-->
+                  <!--nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate-->
+                  <!--cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a-->
+                  <!--ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>-->
+
+               <!--</div>-->
+
+            <!--</article> &lt;!&ndash; post end &ndash;&gt;-->
+
+            <!-- Pagination -->
+            <!--<nav class="col full pagination">-->
+  			      <!--<ul>-->
+                  <!--<li><span class="page-numbers prev inactive">Prev</span></li>-->
+  				      <!--<li><span class="page-numbers current">1</span></li>-->
+  				      <!--<li><a href="#" class="page-numbers">2</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">3</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">4</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">5</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">6</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">7</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">8</a></li>-->
+                  <!--<li><a href="#" class="page-numbers">9</a></li>-->
+  				      <!--<li><a href="#" class="page-numbers next">Next</a></li>-->
+  			      <!--</ul>-->
+  		      <!--</nav>-->
+            {if condition="$username == null"}
+            <h3>登录后才能进行文章分享</h3>
+            {else /}
+            <!-- respond -->
+            <div class="respond">
+
+               <h3>Leave a Essay</h3>
+
+               <!-- form -->
+               <form name="contactForm" id="contactForm" method="post" action="insertessay" enctype="multipart/form-data">
+                  <fieldset>
+
+                     <div class="cf" >
+                        <label for="cWebsite">Title</label>
+                        <input name="title" type="text" id="cWebsite" size="35" value=""  />
+                     </div>
+
+                     <div class="message cf">
+                        <label  for="cMessage">Content<span class="required">  </span></label>
+                        <textarea name="content"  id="cMessage" rows="10" cols="50" style="width: 100%" ></textarea>
+                     </div>
+                     <input type="file" name="imagepath[]"><br>
+                     <input type="file" name="imagepath[]"><br>
+                     <input type="file" name="imagepath[]">
+                     <input type="hidden" name="imagepath" value="">
+                     <input type="hidden" name="date" value="{:date('Y-m-d H:i:s')}">
+                     <input type="hidden" name="likecount" value="0">
+                     <input type="hidden" name="username" value="{$username}">
+                     <input type="submit" class="submit" value="Submit">
+                  </fieldset>
+               </form> <!-- Form End -->
+
+            </div> <!-- Respond End -->
+            {/if}
+
+         </div> <!-- Primary End-->
+
+         <div id="secondary" class="four columns end">
+
+            <aside id="sidebar">
+
+               <div class="widget widget_search">
+                  <h5>Search</h5>
+                  <form action="search" method="get">
+
+                     <input name="search" class="text-search" type="text" onfocus="if (this.value == 'Search here...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Search here...'; }" value="Search here...">
+                     <input type="submit" class="submit-search" value="">
+
+                  </form>
+               </div>
+
+               <div class="widget widget_text">
+                  <h5 class="widget-title">Text Widget</h5>
+                  <div class="textwidget">Proin gravida nibh vel velit auctor aliquet.
+                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
+                  nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus
+                  a sit amet mauris. Morbi accumsan ipsum velit. </div>
+		         </div>
+
+               <div class="widget widget_categories">
+                  <h5 class="widget-title">Categories</h5>
+                  <ul class="link-list cf">
+                     <li><a href="#">Designs</a></li>
+                     <li><a href="#">Internet</a></li>
+                     <li><a href="#">Typography</a></li>
+                     <li><a href="#">Photography</a></li>
+                     <li><a href="#">Web Development</a></li>
+                     <li><a href="#">Projects</a></li>
+                     <li><a href="#">Other Stuff</a></li>
+                  </ul>
+               </div>
+
+               <div class="widget widget_tag_cloud">
+                  <h5 class="widget-title">Tags</h5>
+                  <div class="tagcloud cf">
+                     <a href="#">drupal</a>
+                     <a href="#">joomla</a>
+                     <a href="#">ghost</a>
+                     <a href="#">wordpress</a>
+                  </div>
+               </div>
+
+               <div class="widget widget_photostream">
+                  <h5>Photostream</h5>
+                  <ul class="photostream cf">
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                  </ul>
+	            </div>
+
+            </aside>
+
+         </div> <!-- Secondary End-->
+
+      </div>
+
+   </div> <!-- Content End-->
+
+   <!-- Tweets Section
+   ================================================== -->
+   <!--<section id="tweets">-->
+
+      <!--<div class="row">-->
+
+         <!--<div class="tweeter-icon align-center">-->
+            <!--<i class="fa fa-twitter"></i>-->
+         <!--</div>-->
+
+         <!--<ul id="twitter" class="align-center">-->
+            <!--<li>-->
+               <!--<span>-->
+               <!--This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.-->
+               <!--Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum-->
+               <!--<a href="#">http://t.co/CGIrdxIlI3</a>-->
+               <!--</span>-->
+               <!--<b><a href="#">2 Days Ago</a></b>-->
+            <!--</li>-->
+            <!--&lt;!&ndash;-->
+            <!--<li>-->
+               <!--<span>-->
+               <!--This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.-->
+               <!--Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum-->
+               <!--<a href="#">http://t.co/CGIrdxIlI3</a>-->
+               <!--</span>-->
+               <!--<b><a href="#">3 Days Ago</a></b>-->
+            <!--</li>-->
+            <!--&ndash;&gt;-->
+         <!--</ul>-->
+
+         <!--<p class="align-center"><a href="#" class="button">Follow us</a></p>-->
+
+      <!--</div>-->
+
+   <!--</section> &lt;!&ndash; Tweets Section End&ndash;&gt;-->
+
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="footer-nav">
+					<li><a href="#">Home.</a></li>
+              	<li><a href="#">Blog.</a></li>
+              	<li><a href="#">Portfolio.</a></li>
+              	<li><a href="#">About.</a></li>
+              	<li><a href="#">Contact.</a></li>
+               <li><a href="#">Features.</a></li>
+			   </ul>
+
+            <ul class="footer-social">
+               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="#"><i class="fa fa-skype"></i></a></li>
+               <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+               <!--<li>&copy; 2014 Sparrow</li> -->
+               <li>Design by <a title="Styleshout" href="#">Styleshout</a></li>
+            </ul>
+
+         </div>
+
+         <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
+
+      </div>
+
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="/tp5/public/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="/tp5/public/js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="/tp5/public/js/jquery.flexslider.js"></script>
+   <script src="/tp5/public/js/doubletaptogo.js"></script>
+   <script src="/tp5/public/js/init.js"></script>
+
+
+</body>
+</html>
