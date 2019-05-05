@@ -72,7 +72,7 @@ class User extends Controller
             $user = new UserModel($data);
             $ret = $user->allowField(true)->save();
             if ($ret){
-                $this->success('注册成功','User/index');
+                $this->success('注册成功','/index');
             }
             else
             {
@@ -110,7 +110,7 @@ class User extends Controller
                 if ($result['password'] == md5($data['password']))
                 {
                     session('username',$data['username']);
-                    $this->success("登陆成功",'User/index');
+                    $this->success("登陆成功",'/index');
                 }
                 else
                 {

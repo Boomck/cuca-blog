@@ -17,9 +17,9 @@
 
 	<!-- CSS
     ================================================== -->
-   <link rel="stylesheet" href="/tp5/public/css/default.css">
-	<link rel="stylesheet" href="/tp5/public/css/layout.css">
-   <link rel="stylesheet" href="/tp5/public/css/media-queries.css">
+   <link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="/css/layout.css">
+   <link rel="stylesheet" href="/css/media-queries.css">
 
    <!-- Script
    ================================================== -->
@@ -47,7 +47,7 @@
          <div class="twelve columns">
 
             <div class="logo">
-               <a href="index.html"><img alt="" src="/tp5/public/images/logo.png"></a>
+               <a href="index"><img alt="" src="/images/logo.png"></a>
             </div>
 
             <nav id="nav-wrap">
@@ -58,7 +58,7 @@
                <ul id="nav" class="nav">
                   <li><a href="index">HOME</a></li>
                   {if condition="$username == null"}
-                  <li><a href="Login.html">LOGIN</a></li>
+                  <li><a href="Login">LOGIN</a></li>
                   <li><a href="register">REGISTER</a></li>
                   {else /}
                   <li><span><a href="personal">{$username}</a></span>
@@ -108,7 +108,7 @@
 
                   <h1>
                      {if condition="$username == null"}
-                     <a href="cuca/user/loadsingle?id={$val.id}" title="">{$val.title}</a></h1>
+                     <a href="loadsingle?id={$val.id}" title="">{$val.title}</a></h1>
                      {else /}
                      <a href="loadsingle?id={$val.id}" title="">{$val.title}</a></h1>
                      {/if}
@@ -166,7 +166,7 @@
                <!--</div>-->
 
                <!--<div class="post-thumb">-->
-                  <!--<a href="single.html" title=""><img src="/tp5/public/images/post-image/post-image-1300x500-02.jpg" alt="post-image" title="post-image"></a>-->
+                  <!--<a href="single.html" title=""><img src="/images/post-image/post-image-1300x500-02.jpg" alt="post-image" title="post-image"></a>-->
                <!--</div>-->
 
                <!--<div class="post-content">-->
@@ -201,7 +201,7 @@
                <!--</div>-->
 
                <!--<div class="post-thumb">-->
-                  <!--<a href="single.html" title=""><img src="/tp5/public/images/post-image/post-image-1300x500-03.jpg" alt="post-image" title="post-image"></a>-->
+                  <!--<a href="single.html" title=""><img src="/images/post-image/post-image-1300x500-03.jpg" alt="post-image" title="post-image"></a>-->
                <!--</div>-->
 
                <!--<div class="post-content">-->
@@ -316,14 +316,14 @@
                <div class="widget widget_photostream">
                   <h5>Photostream</h5>
                   <ul class="photostream cf">
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="/tp5/public/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
+                     <li><a href="#"><img src="/images/thumb.jpg" alt="thumbnail"></a></li>
                   </ul>
 	            </div>
 
@@ -415,12 +415,12 @@
    <!-- Java Script
    ================================================== -->
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="/tp5/public/js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="/tp5/public/js/jquery-migrate-1.2.1.min.js"></script>
+   <script>window.jQuery || document.write('<script src="/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="/js/jquery-migrate-1.2.1.min.js"></script>
 
-   <script src="/tp5/public/js/jquery.flexslider.js"></script>
-   <script src="/tp5/public/js/doubletaptogo.js"></script>
-   <script src="/tp5/public/js/init.js"></script>
+   <script src="/js/jquery.flexslider.js"></script>
+   <script src="/js/doubletaptogo.js"></script>
+   <script src="/js/init.js"></script>
 
 
 </body>
